@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18.375, 10.875" name="Contexto">
+  <DataContextMoniker Name="/ContextoDataContext" />
+  <nestedChildShapes>
+    <classShape Id="70b38edf-2708-40bf-b1a0-261bc057b889" absoluteBounds="3.875, 0.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/ContextoDataContext/Cancha" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ab8f81db-b8df-4e7f-8700-ca9f137b1425" absoluteBounds="3.89, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="486a3485-b61a-4f85-b436-99b3a4d1ca88" absoluteBounds="13.125, 6.375, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/ContextoDataContext/Clasificacion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5c545860-9fc1-4678-9f48-f7af43ba025a" absoluteBounds="13.14, 6.8350000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" absoluteBounds="6.625, 4.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/ContextoDataContext/Equipos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a95a0aa8-7d48-4391-96f2-efd9a9bc14bc" absoluteBounds="6.64, 5.2100000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="427575bc-9569-438c-a0e8-657c91db678e" absoluteBounds="1.125, 0.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ContextoDataContext/Historial" />
+      <nestedChildShapes>
+        <elementListCompartment Id="afc8ca1b-7798-49f2-a648-1f7a2686bd7a" absoluteBounds="1.1400000000000001, 1.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe895311-4a02-412b-ac27-8105a83bd2b2" absoluteBounds="1.125, 4.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ContextoDataContext/LocalidadP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="914d78f6-4883-4de2-9036-d55f8b555c7f" absoluteBounds="1.1400000000000001, 5.3350000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ad55049e-eb3b-404c-9a2f-db6b90b5021b" absoluteBounds="16.125, 5.5, 2, 4.4631168619791666">
+      <DataClassMoniker Name="/ContextoDataContext/Partidos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3729da2c-d243-4210-8cf6-83e8cb59fc4f" absoluteBounds="16.14, 5.9600000000000009, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa3f3582-e265-428b-a459-97fd5419b7c8" absoluteBounds="3.875, 4.25, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ContextoDataContext/PersonasPad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="48a17ca9-a2cd-4e6a-90f8-8fe2a26aa9a3" absoluteBounds="3.89, 4.7100000000000009, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="29776c2d-29ba-41fe-85d5-8a710bedd89d" absoluteBounds="9.625, 4.125, 2, 3.1170068359375023">
+      <DataClassMoniker Name="/ContextoDataContext/ReservaCanPad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4d96886-4b1c-4517-9d80-440e98650924" absoluteBounds="9.64, 4.5850000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e67f21c1-7912-4ce4-8050-424b9bda207d" absoluteBounds="9.375, 8.625, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/ContextoDataContext/Torneo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="522a2861-7f58-4176-b65b-abb763ee9d11" absoluteBounds="9.39, 9.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66784663-3489-40c1-bc95-7d3c21a5f93d" absoluteBounds="6.625, 1.375, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/ContextoDataContext/TurnoFijoCanPad" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26633df3-212f-47a1-a851-039361782dbd" absoluteBounds="6.64, 1.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.625 : 6.52089680989583); (7.625 : 7.93350341796875); (8.07291916666667 : 7.93350341796875 : JumpStart); (8.23958583333333 : 7.93350341796875 : JumpEnd); (13.125 : 7.93350341796875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Equipos/Equipos_Clasificacion" />
+      <nodes>
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+        <classShapeMoniker Id="486a3485-b61a-4f85-b436-99b3a4d1ca88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.625 : 5.63544840494792); (9.04166666666667 : 5.63544840494792 : JumpStart); (9.20833333333333 : 5.63544840494792 : JumpEnd); (9.375 : 5.63544840494792); (9.375 : 3.875); (10.5416666666667 : 3.875 : JumpStart); (10.7083333333333 : 3.875 : JumpEnd); (16.5104146666667 : 3.875 : JumpStart); (16.6770813333333 : 3.875 : JumpEnd); (17.125 : 3.875); (17.125 : 5.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Equipos/Equipos_Partidos" />
+      <nodes>
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+        <classShapeMoniker Id="ad55049e-eb3b-404c-9a2f-db6b90b5021b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.625 : 6.10942460742188); (9.125 : 6.10942460742188); (9.125 : 3.625); (10.5416666666667 : 3.625 : JumpStart); (10.7083333333333 : 3.625 : JumpEnd); (16.593748 : 3.625); (16.593748 : 5.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Equipos/Equipos_Partidos1" />
+      <nodes>
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+        <classShapeMoniker Id="ad55049e-eb3b-404c-9a2f-db6b90b5021b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 5.63544840494792); (6.625 : 5.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/PersonasPad/PersonasPad_Equipos" />
+      <nodes>
+        <classShapeMoniker Id="aa3f3582-e265-428b-a459-97fd5419b7c8" />
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 5.13022420247396); (6.625 : 5.13022420247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/PersonasPad/PersonasPad_Equipos1" />
+      <nodes>
+        <classShapeMoniker Id="aa3f3582-e265-428b-a459-97fd5419b7c8" />
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 5.66429768880208); (3.875 : 5.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/LocalidadP/LocalidadP_PersonasPad" />
+      <nodes>
+        <classShapeMoniker Id="fe895311-4a02-412b-ac27-8105a83bd2b2" />
+        <classShapeMoniker Id="aa3f3582-e265-428b-a459-97fd5419b7c8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 1.03125); (10.625 : 1.03125); (10.625 : 4.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Cancha/Cancha_ReservaCanPad" />
+      <nodes>
+        <classShapeMoniker Id="70b38edf-2708-40bf-b1a0-261bc057b889" />
+        <classShapeMoniker Id="29776c2d-29ba-41fe-85d5-8a710bedd89d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 4.46875); (9.04166666666667 : 4.46875 : JumpStart); (9.20833333333333 : 4.46875 : JumpEnd); (9.29166666666667 : 4.46875 : JumpStart); (9.45833333333333 : 4.46875 : JumpEnd); (9.625 : 4.46875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/PersonasPad/PersonasPad_ReservaCanPad" />
+      <nodes>
+        <classShapeMoniker Id="aa3f3582-e265-428b-a459-97fd5419b7c8" />
+        <classShapeMoniker Id="29776c2d-29ba-41fe-85d5-8a710bedd89d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.375 : 9.751650890625); (14.125 : 9.751650890625); (14.125 : 8.9151025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Torneo/Torneo_Clasificacion" />
+      <nodes>
+        <classShapeMoniker Id="e67f21c1-7912-4ce4-8050-424b9bda207d" />
+        <classShapeMoniker Id="486a3485-b61a-4f85-b436-99b3a4d1ca88" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.375 : 9.60659912109375); (8.1562525 : 9.60659912109375); (8.1562525 : 6.52089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Torneo/Torneo_Equipos" />
+      <nodes>
+        <classShapeMoniker Id="e67f21c1-7912-4ce4-8050-424b9bda207d" />
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.375 : 9.30212671484375); (14.0416666666667 : 9.30212671484375 : JumpStart); (14.2083333333333 : 9.30212671484375 : JumpEnd); (16.125 : 9.30212671484375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Torneo/Torneo_Partidos" />
+      <nodes>
+        <classShapeMoniker Id="e67f21c1-7912-4ce4-8050-424b9bda207d" />
+        <classShapeMoniker Id="ad55049e-eb3b-404c-9a2f-db6b90b5021b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.0937475 : 6.52089680989583); (7.0937475 : 9.08454706054687); (8.07291916666667 : 9.08454706054687 : JumpStart); (8.23958583333333 : 9.08454706054687 : JumpEnd); (9.375 : 9.08454706054687)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Equipos/Equipos_Torneo" />
+      <nodes>
+        <classShapeMoniker Id="b66677a3-3b9f-4bf6-b81c-59b924ddcab0" />
+        <classShapeMoniker Id="e67f21c1-7912-4ce4-8050-424b9bda207d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 1.94794840494792); (6.625 : 1.94794840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ContextoDataContext/Cancha/Cancha_TurnoFijoCanPad" />
+      <nodes>
+        <classShapeMoniker Id="70b38edf-2708-40bf-b1a0-261bc057b889" />
+        <classShapeMoniker Id="66784663-3489-40c1-bc95-7d3c21a5f93d" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 4.25); (6.25 : 3.875); (6.25 : 4.2901025390625); (6.625 : 3.9151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ContextoDataContext/PersonasPad/PersonasPad_TurnoFijoCanPad" />
+      <nodes>
+        <classShapeMoniker Id="aa3f3582-e265-428b-a459-97fd5419b7c8" />
+        <classShapeMoniker Id="66784663-3489-40c1-bc95-7d3c21a5f93d" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SistemaDeGestionDePadel" Class="ContextoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=GONZALOVALLEJOS\PAPLICADA;Initial Catalog=SistemaDeGestionDePadel;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SistemaDeGestionDePadelConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Cancha" Member="Cancha">
+    <Type Name="Cancha">
+      <Column Name="CanchaId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CanchaDescripcion" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="EstadoCancha" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Marca1" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Marca2" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Cancha_ReservaCanPad" Member="ReservaCanPad" ThisKey="CanchaId" OtherKey="CanchaId" Type="ReservaCanPad" />
+      <Association Name="Cancha_TurnoFijoCanPad" Member="TurnoFijoCanPad" ThisKey="CanchaId" OtherKey="CanchaId" Type="TurnoFijoCanPad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Clasificacion" Member="Clasificacion">
+    <Type Name="Clasificacion">
+      <Column Name="IdClasificacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdTorneo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdEquipo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GF" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Puesto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Equipos_Clasificacion" Member="Equipos" ThisKey="IdEquipo" OtherKey="EquipoId" Type="Equipos" IsForeignKey="true" />
+      <Association Name="Torneo_Clasificacion" Member="Torneo" ThisKey="IdTorneo" OtherKey="TorneoId" Type="Torneo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Equipos" Member="Equipos">
+    <Type Name="Equipos">
+      <Column Name="EquipoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TorneoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PrimerJugadorE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegundoJugadorE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GrupoEquipo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Equipos_Clasificacion" Member="Clasificacion" ThisKey="EquipoId" OtherKey="IdEquipo" Type="Clasificacion" />
+      <Association Name="Equipos_Partidos" Member="Partidos" ThisKey="EquipoId" OtherKey="PrimerEquipoId" Type="Partidos" />
+      <Association Name="Equipos_Partidos1" Member="Partidos1" ThisKey="EquipoId" OtherKey="SegundoEquipoId" Type="Partidos" />
+      <Association Name="Equipos_Torneo" Member="Torneo1" ThisKey="EquipoId" OtherKey="IdGanador" Type="Torneo" />
+      <Association Name="PersonasPad_Equipos" Member="PersonasPad" ThisKey="PrimerJugadorE" OtherKey="PersonasPadId" Type="PersonasPad" IsForeignKey="true" />
+      <Association Name="PersonasPad_Equipos1" Member="PersonasPad1" ThisKey="SegundoJugadorE" OtherKey="PersonasPadId" Type="PersonasPad" IsForeignKey="true" />
+      <Association Name="Torneo_Equipos" Member="Torneo" ThisKey="TorneoId" OtherKey="TorneoId" Type="Torneo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Historial" Member="Historial">
+    <Type Name="Historial">
+      <Column Name="HistorialId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GananciasDiarias" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GananciasExtra" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LocalidadP" Member="LocalidadP">
+    <Type Name="LocalidadP">
+      <Column Name="LocalidadPId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NombreLocalidadP" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="Marca1L" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="Marca2L" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="LocalidadP_PersonasPad" Member="PersonasPad" ThisKey="LocalidadPId" OtherKey="LocalidadPId" Type="PersonasPad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Partidos" Member="Partidos">
+    <Type Name="Partidos">
+      <Column Name="PartidosId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TorneoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PrimerEquipoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegundoEquipoId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Set1PE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Set1SE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Set2PE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Set2SE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Set3PE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Set3SE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SetGanadosPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SetGanadosSE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SetPerdidosPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SetPerdidosSE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GamesGanadosPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GamesGanadosSE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GamesPerdidosPE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GamesPerdidosSE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TipoPartido" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Equipos_Partidos" Member="Equipos" ThisKey="PrimerEquipoId" OtherKey="EquipoId" Type="Equipos" IsForeignKey="true" />
+      <Association Name="Equipos_Partidos1" Member="Equipos1" ThisKey="SegundoEquipoId" OtherKey="EquipoId" Type="Equipos" IsForeignKey="true" />
+      <Association Name="Torneo_Partidos" Member="Torneo" ThisKey="TorneoId" OtherKey="TorneoId" Type="Torneo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersonasPad" Member="PersonasPad">
+    <Type Name="PersonasPad">
+      <Column Name="PersonasPadId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PersonasPadDni" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersonasPadNombre" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="PersonasPAdApellido" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="LocalidadPId" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="PersonasPadTelefono" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="PersonasPadFecNac" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PersonasPadEstado" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PersonasPadDeuda" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PersonasPadMarca2" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="PersonasPad_Equipos" Member="Equipos" ThisKey="PersonasPadId" OtherKey="PrimerJugadorE" Type="Equipos" />
+      <Association Name="PersonasPad_Equipos1" Member="Equipos1" ThisKey="PersonasPadId" OtherKey="SegundoJugadorE" Type="Equipos" />
+      <Association Name="PersonasPad_ReservaCanPad" Member="ReservaCanPad" ThisKey="PersonasPadId" OtherKey="PersonasPadId" Type="ReservaCanPad" />
+      <Association Name="PersonasPad_TurnoFijoCanPad" Member="TurnoFijoCanPad" ThisKey="PersonasPadId" OtherKey="PersonasPadId" Type="TurnoFijoCanPad" />
+      <Association Name="LocalidadP_PersonasPad" Member="LocalidadP" ThisKey="LocalidadPId" OtherKey="LocalidadPId" Type="LocalidadP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReservaCanPad" Member="ReservaCanPad">
+    <Type Name="ReservaCanPad">
+      <Column Name="ReservaCanPadId" Type="System.Int16" DbType="SmallInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReservaCanPadDia" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadFecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ReservaCanPadHora" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PersonasPadId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CanchaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReservaCanPadEstado" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadPago" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadTipo" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadMarca1" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadMarca2" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadFechaPago" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Cancha_ReservaCanPad" Member="Cancha" ThisKey="CanchaId" OtherKey="CanchaId" Type="Cancha" IsForeignKey="true" />
+      <Association Name="PersonasPad_ReservaCanPad" Member="PersonasPad" ThisKey="PersonasPadId" OtherKey="PersonasPadId" Type="PersonasPad" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Torneo" Member="Torneo">
+    <Type Name="Torneo">
+      <Column Name="TorneoId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NombreTorneo" Type="System.String" DbType="VarChar(40) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaInicioTorneo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FechaFinTorneo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="IdGanador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Torneo_Clasificacion" Member="Clasificacion" ThisKey="TorneoId" OtherKey="IdTorneo" Type="Clasificacion" />
+      <Association Name="Torneo_Equipos" Member="Equipos" ThisKey="TorneoId" OtherKey="TorneoId" Type="Equipos" />
+      <Association Name="Torneo_Partidos" Member="Partidos" ThisKey="TorneoId" OtherKey="TorneoId" Type="Partidos" />
+      <Association Name="Equipos_Torneo" Member="Equipos1" ThisKey="IdGanador" OtherKey="EquipoId" Type="Equipos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TurnoFijoCanPad" Member="TurnoFijoCanPad">
+    <Type Name="TurnoFijoCanPad">
+      <Column Name="TurnoFijoCanPadId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TurnoFijoCanPadDia" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TurnoFijoCanPadFecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TurnoFijoCanPadHora" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PersonasPadId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CanchaId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TurnoFijoCanPadEstado" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadMarca1" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ReservaCanPadMarca2" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Association Name="Cancha_TurnoFijoCanPad" Member="Cancha" ThisKey="CanchaId" OtherKey="CanchaId" Type="Cancha" IsForeignKey="true" />
+      <Association Name="PersonasPad_TurnoFijoCanPad" Member="PersonasPad" ThisKey="PersonasPadId" OtherKey="PersonasPadId" Type="PersonasPad" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

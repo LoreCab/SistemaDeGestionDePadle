@@ -1,0 +1,4 @@
+SELECT [TurnoFijoCanPadHora] AS [HORA], ([PersonasPad].[PersonasPAdApellido] + ', ' + [PersonasPad].[PersonasPadNombre]) AS [CLIENTE], [TurnoFijoCanPadEstado] AS [ESTADO]
+                            FROM [TurnoFijoCanPad]
+                            INNER JOIN PersonasPad ON PersonasPad.PersonasPadId = TurnoFijoCanPad.PersonasPadId
+                            WHERE (([TurnoFijoCanPadDia] = DATEPART(day,GETDATE())) and ([CanchaId] = 1))

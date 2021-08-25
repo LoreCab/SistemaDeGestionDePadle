@@ -1,0 +1,257 @@
+public void Clasificacion(List<Partidos> LPartido)
+        {
+            Partidos Partido1 = LPartido.ElementAt(0);
+            Partidos Partido2 = LPartido.ElementAt(1);
+            Partidos Partido3 = LPartido.ElementAt(2);
+
+            int Equipo1 = 0, Equipo2 = 0, Equipo3 = 0;
+
+            int Ds1 = 0, Ds2 = 0, Ds3 = 0;
+
+            int Dg1 = 0, Dg2 = 0, Dg3 = 0;
+
+            int Sf1 = 0, Sf2 = 0, Sf3 = 0;
+
+            int Gf1 = 0, Gf2 = 0, Gf3 = 0;
+
+            if (Partido1.SetGanadosPE > Partido1.SetGanadosSE)
+            {
+                Equipo1++;
+            }
+            else
+            {
+                Equipo2++;
+            }
+
+            if (Partido2.SetGanadosPE > Partido2.SetGanadosSE)
+            {
+                Equipo1++;
+            }
+            else
+            {
+                Equipo3++;
+            }
+            if (Partido3.SetGanadosPE > Partido3.SetGanadosSE)
+            {
+                Equipo2++;
+            }
+            else
+            {
+                Equipo3++;
+            }
+
+            Ds1 = Partido1.SetGanadosPE - Partido1.SetPerdidosPE + Partido2.SetGanadosPE - Partido2.SetPerdidosPE;
+            Ds2 = Partido1.SetGanadosSE - Partido1.SetPerdidosSE + Partido3.SetGanadosPE - Partido3.SetPerdidosPE;
+            Ds3 = Partido2.SetGanadosSE - Partido2.SetPerdidosSE + Partido3.SetGanadosSE - Partido3.SetPerdidosSE;
+
+            Dg1 = Partido1.GamesGanadosPE - Partido1.GamesPerdidosPE + Partido2.GamesGanadosPE - Partido2.GamesPerdidosPE;
+            Dg2 = Partido1.GamesGanadosSE - Partido1.GamesPerdidosSE + Partido3.GamesGanadosPE - Partido3.GamesPerdidosPE;
+            Dg3 = Partido2.GamesGanadosSE - Partido2.GamesPerdidosSE + Partido3.GamesGanadosSE - Partido3.GamesPerdidosSE;
+
+            Sf1 = Partido1.SetGanadosPE + Partido2.SetGanadosPE;
+            Sf2 = Partido1.SetGanadosSE + Partido3.SetGanadosPE;
+            Sf3 = Partido2.SetGanadosSE + Partido3.SetGanadosSE;
+
+            Gf1 = Partido1.GamesGanadosPE + Partido2.GamesGanadosPE;
+            Gf2 = Partido1.GamesGanadosSE + Partido3.GamesGanadosPE;
+            Gf3 = Partido2.GamesGanadosSE + Partido3.GamesGanadosSE;
+
+            Clasificacion EntClasificacion1 = new Clasificacion();
+            Clasificacion EntClasificacion2 = new Clasificacion();
+            Clasificacion EntClasificacion3 = new Clasificacion();
+
+            EntClasificacion1.IdEquipo = Partido1.PrimerEquipoId;
+            EntClasificacion1.IdTorneo = Partido1.TorneoId;
+            EntClasificacion1.PG = Equipo1;
+            EntClasificacion1.DS = Ds1;
+            EntClasificacion1.DG = Dg1;
+            EntClasificacion1.SF = Sf1;
+            EntClasificacion1.GF = Gf1;
+
+            EntClasificacion2.IdEquipo = Partido1.SegundoEquipoId;
+            EntClasificacion2.IdTorneo = Partido1.TorneoId;
+            EntClasificacion2.PG = Equipo2;
+            EntClasificacion2.DS = Ds2;
+            EntClasificacion2.DG = Dg2;
+            EntClasificacion2.SF = Sf2;
+            EntClasificacion2.GF = Gf2;
+
+            EntClasificacion3.IdEquipo = Partido3.SegundoEquipoId;
+            EntClasificacion3.IdTorneo = Partido1.TorneoId;
+            EntClasificacion3.PG = Equipo3;
+            EntClasificacion3.DS = Ds3;
+            EntClasificacion3.DG = Dg3;
+            EntClasificacion3.SF = Sf3;
+            EntClasificacion3.GF = Gf3;
+
+            List<Clasificacion> LEntClasificacion = new List<Sistema_de_Gestion_de_Padel.Clasificacion>();
+            MAPEO OMapeo = new MAPEO();
+
+            LEntClasificacion.Add(EntClasificacion1);
+            LEntClasificacion.Add(EntClasificacion2);
+            LEntClasificacion.Add(EntClasificacion3);
+
+            LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.PG).ToList();
+
+            if (LEntClasificacion.ElementAt(0).PG != LEntClasificacion.ElementAt(1).PG)//HAY UNO CON MAYOR PUNTAJE EN PG
+            {
+                EntClasificacion1 = LEntClasificacion.ElementAt(0);
+                EntClasificacion1.Puesto = 1;
+                LEntClasificacion.RemoveAt(0);
+                if (LEntClasificacion.ElementAt(0).PG != LEntClasificacion.ElementAt(1).PG) //EXISTE EL 2DO PUNTAJE MAYOR EN PG
+                {
+                    EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                    EntClasificacion2.Puesto = 2;
+                    EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                    EntClasificacion3.Puesto = 3;
+                }
+                else
+                {
+                    LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.DS).ToList();
+                    if (LEntClasificacion.ElementAt(0).DS != LEntClasificacion.ElementAt(1).DS) //EXISTE EL 2DO CON DS
+                    {
+                        EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                        EntClasificacion2.Puesto = 2;
+                        EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                        EntClasificacion3.Puesto = 3;
+                    }
+                    else
+                    {
+                        LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.DG).ToList();
+                        if (LEntClasificacion.ElementAt(0).DG != LEntClasificacion.ElementAt(1).DG) //EXISTE 2DO CON DG
+                        {
+                            EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                            EntClasificacion2.Puesto = 2;
+                            EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                            EntClasificacion3.Puesto = 3;
+                        }
+                        else
+                        {
+                            LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.SF).ToList();
+                            if (LEntClasificacion.ElementAt(0).SF != LEntClasificacion.ElementAt(1).SF) // EXISTE 2DO CON SF
+                            {
+                                EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                                EntClasificacion2.Puesto = 2;
+                                EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                                EntClasificacion3.Puesto = 3;
+                            }
+                            else
+                            {
+                                LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.GF).ToList();
+                                if (LEntClasificacion.ElementAt(0).GF != LEntClasificacion.ElementAt(1).GF) //EXISTE 2DO CON GF
+                                {
+                                    EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                                    EntClasificacion2.Puesto = 2;
+                                    EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                                    EntClasificacion3.Puesto = 3;
+                                }
+                                else //CLASIFICAN CON LOS MISMOS PUNTAJES Y DESEMPATAN CON EL GANADOR DEL SET
+                                {
+                                    Partidos EntPartido = new Partidos();
+                                    List<Partidos> ListPartidos = new List<Partidos>();
+
+                                    ListPartidos = OMapeo.RecuperaPartidosTorneo(Convert.ToInt16(LEntClasificacion.ElementAt(0).IdTorneo));
+
+                                    EntPartido = ListPartidos.Find(x => (x.PrimerEquipoId == LEntClasificacion.ElementAt(0).IdEquipo || x.SegundoEquipoId == LEntClasificacion.ElementAt(0).IdEquipo) && (x.PrimerEquipoId == LEntClasificacion.ElementAt(1).IdEquipo || x.SegundoEquipoId == LEntClasificacion.ElementAt(1).IdEquipo));
+
+                                    if (EntPartido.SetGanadosPE > EntPartido.SetGanadosSE)
+                                    {
+                                        EntClasificacion2 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.PrimerEquipoId);
+                                        EntClasificacion3 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.SegundoEquipoId);
+                                        EntClasificacion2.Puesto = 2;
+                                        EntClasificacion3.Puesto = 3;
+                                    }
+                                    else
+                                    {
+                                        EntClasificacion2 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.SegundoEquipoId);
+                                        EntClasificacion3 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.PrimerEquipoId);
+                                        EntClasificacion2.Puesto = 2;
+                                        EntClasificacion3.Puesto = 3;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            else //Son iguales los 3 partidos
+            {
+                    LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.DS).ToList();
+                    if (LEntClasificacion.ElementAt(0).DS != LEntClasificacion.ElementAt(1).DS) //EXISTE EL 2DO CON DS
+                    {
+                        EntClasificacion1 = LEntClasificacion.ElementAt(0);
+                        EntClasificacion1.Puesto = 1;
+                        LEntClasificacion.RemoveAt(0);
+                        if (LEntClasificacion.ElementAt(0).DS != LEntClasificacion.ElementAt(1).DS)
+                        {
+                            EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                            EntClasificacion2.Puesto = 2;
+                            EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                            EntClasificacion3.Puesto = 3;
+                        }
+                    }
+                    else
+                    {
+                        LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.DG).ToList();
+                        if (LEntClasificacion.ElementAt(0).DG != LEntClasificacion.ElementAt(1).DG) //EXISTE 2DO CON DG
+                        {
+                            EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                            EntClasificacion2.Puesto = 2;
+                            EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                            EntClasificacion3.Puesto = 3;
+                        }
+                        else
+                        {
+                            LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.SF).ToList();
+                            if (LEntClasificacion.ElementAt(0).SF != LEntClasificacion.ElementAt(1).SF) // EXISTE 2DO CON SF
+                            {
+                                EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                                EntClasificacion2.Puesto = 2;
+                                EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                                EntClasificacion3.Puesto = 3;
+                            }
+                            else
+                            {
+                                LEntClasificacion = LEntClasificacion.OrderByDescending(x => x.GF).ToList();
+                                if (LEntClasificacion.ElementAt(0).GF != LEntClasificacion.ElementAt(1).GF) //EXISTE 2DO CON GF
+                                {
+                                    EntClasificacion2 = LEntClasificacion.ElementAt(0);
+                                    EntClasificacion2.Puesto = 2;
+                                    EntClasificacion3 = LEntClasificacion.ElementAt(1);
+                                    EntClasificacion3.Puesto = 3;
+                                }
+                                else //CLASIFICAN CON LOS MISMOS PUNTAJES Y DESEMPATAN CON EL GANADOR DEL SET
+                                {
+                                    Partidos EntPartido = new Partidos();
+                                    List<Partidos> ListPartidos = new List<Partidos>();
+
+                                    ListPartidos = OMapeo.RecuperaPartidosTorneo(Convert.ToInt16(LEntClasificacion.ElementAt(0).IdTorneo));
+
+                                    EntPartido = ListPartidos.Find(x => (x.PrimerEquipoId == LEntClasificacion.ElementAt(0).IdEquipo || x.SegundoEquipoId == LEntClasificacion.ElementAt(0).IdEquipo) && (x.PrimerEquipoId == LEntClasificacion.ElementAt(1).IdEquipo || x.SegundoEquipoId == LEntClasificacion.ElementAt(1).IdEquipo));
+
+                                    if (EntPartido.SetGanadosPE > EntPartido.SetGanadosSE)
+                                    {
+                                        EntClasificacion2 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.PrimerEquipoId);
+                                        EntClasificacion3 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.SegundoEquipoId);
+                                        EntClasificacion2.Puesto = 2;
+                                        EntClasificacion3.Puesto = 3;
+                                    }
+                                    else
+                                    {
+                                        EntClasificacion2 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.SegundoEquipoId);
+                                        EntClasificacion3 = LEntClasificacion.Find(x => x.IdEquipo == EntPartido.PrimerEquipoId);
+                                        EntClasificacion2.Puesto = 2;
+                                        EntClasificacion3.Puesto = 3;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+            OMapeo.AltaClasificacion(EntClasificacion1);
+            OMapeo.AltaClasificacion(EntClasificacion2);
+            OMapeo.AltaClasificacion(EntClasificacion3);
+        }

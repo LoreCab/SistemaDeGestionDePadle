@@ -1,0 +1,116 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Sistema_de_Gestion_de_Padel.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title> SISTEMA DE GESTON DE PADEL</title>
+    <asp:ContentPlaceHolder ID="head" runat="server"> </asp:ContentPlaceHolder>
+   <!-- Template Pegada -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <!-- Fin Template Pegada -->
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <!-- BARRA DE MENU -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="Inicio.aspx">SISTEMA DE GESTION DE PADEL</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCliente" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Socios
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownCliente">
+                <a class="dropdown-item" href="Nuevo_Cliente.aspx">Cargar Nuevo Socio</a>
+                <a class="dropdown-item" href="Consultar_Cliente.aspx">Consultar Socios</a>
+              </div>
+            <li class="nav-item">
+              <a class="nav-link" href="Canchas.aspx">Canchas</a>
+            </li>
+           </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownReserva" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reserva
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownReserva">
+                <a class="dropdown-item" href="Turnos.aspx">Nueva Reserva</a>
+                <a class="dropdown-item" href="Consultar_Reservas.aspx">Consultar Reservas Diarias</a>
+                <a class="dropdown-item" href="Consultar_TurnoFijo.aspx">Consultar Turnos Fijos</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contacto.aspx">Contacto</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownIngresar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Administración
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownIngresar">
+                <a class="dropdown-item" href="Inicio_Cierre.aspx">Iniciar/Finalizar Día</a>
+                <a class="dropdown-item" href="Pago_Deuda.aspx">Pago de Deudas</a>
+                <a class="dropdown-item" href="Ganancias.aspx">Ganancias</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="A1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Iniciar Sesion</a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownIngresar">
+                <a>
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                            <asp:Login ID="Login1" runat="server"></asp:Login>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <asp:LoginName ID="LoginName1" runat="server"></asp:LoginName>
+                            <p> </p>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server"></asp:LoginStatus>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </a>
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Fin Pegado -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-2 bg-primary">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright&copy; Gonzalo Vallejos Gallardo - Programación Aplicada 2018</p>
+      </div>
+    </footer>
+
+    <!-- Contact form JavaScript -->
+    <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    </form>
+</body>
+</html>

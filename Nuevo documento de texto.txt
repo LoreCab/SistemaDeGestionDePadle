@@ -1,0 +1,68 @@
+https://www.youtube.com/watch?v=aj7iyil4tDU
+
+cd "C:\Program Files (x86)\Microsoft SQL Server\110\Shared"
+
+mofcomp sqlmgmproviderxpsp2up.mof
+
+
+SELECT TurnoFijoCanPad.TurnoFijoCanPadHora AS HORARIO,
+SUM(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 1 THEN TurnoFijoCanPad.PersonasPadId END) AS LUNES,
+SUM(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 2 THEN TurnoFijoCanPad.PersonasPadId END) AS MARTES,
+SUM(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 3 THEN TurnoFijoCanPad.PersonasPadId END) AS MIERCOLES,
+CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 4 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre)END AS JUEVES,
+CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 5 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre)END AS VIERNES,
+CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 6 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre)END AS SABADO
+FROM TurnoFijoCanPad INNER JOIN PersonasPad ON PersonasPad.PersonasPadId = TurnoFijoCanPad.PersonasPadId
+WHERE TurnoFijoCanPad.CanchaId = 1
+
+
+
+
+-- PARA VER CALENDARIO SEMANAL DE TURNOS FIJO
+
+SELECT TurnoFijoCanPad.TurnoFijoCanPadHora AS HORARIO,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 1 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS LUNES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 2 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS MARTES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 3 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS MIERCOLES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 4 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS JUEVES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 5 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS VIERNES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 6 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS SABADO
+FROM TurnoFijoCanPad INNER JOIN PersonasPad ON PersonasPad.PersonasPadId = TurnoFijoCanPad.PersonasPadId
+WHERE TurnoFijoCanPad.CanchaId = 1
+GROUP BY TurnoFijoCanPad.TurnoFijoCanPadHora
+
+-----------------------------------------------------
+
+----- TURNOS FIJOS Y RESERVAS
+SELECT TurnoFijoCanPad.TurnoFijoCanPadHora AS HORARIO,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 1 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS LUNES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 2 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS MARTES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 3 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS MIERCOLES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 4 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS JUEVES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 5 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS VIERNES,
+MAX(CASE WHEN TurnoFijoCanPad.TurnoFijoCanPadDia = 6 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS SABADO
+FROM TurnoFijoCanPad INNER JOIN PersonasPad ON PersonasPad.PersonasPadId = TurnoFijoCanPad.PersonasPadId
+WHERE TurnoFijoCanPad.CanchaId = 1
+GROUP BY TurnoFijoCanPad.TurnoFijoCanPadHora
+UNION
+(SELECT ReservaCanPad.ReservaCanPadHora AS HORARIO,
+MAX(CASE WHEN ReservaCanPad.ReservaCanPadDia = 1 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS LUNES,
+MAX(CASE WHEN ReservaCanPad.ReservaCanPadDia = 2 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS MARTES,
+MAX(CASE WHEN ReservaCanPad.ReservaCanPadDia = 3 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS MIERCOLES,
+MAX(CASE WHEN ReservaCanPad.ReservaCanPadDia = 4 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS JUEVES,
+MAX(CASE WHEN ReservaCanPad.ReservaCanPadDia = 5 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS VIERNES,
+MAX(CASE WHEN ReservaCanPad.ReservaCanPadDia = 6 THEN (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) END) AS SABADO
+FROM ReservaCanPad INNER JOIN PersonasPad ON PersonasPad.PersonasPadId = ReservaCanPad.PersonasPadId
+WHERE ReservaCanPad.CanchaId = 1 AND ReservaCanPad.ReservaCanPadFecha <= GETDATE()
+GROUP BY ReservaCanPad.ReservaCanPadHora)
+
+------------------------------------------------------------
+
+
+-------- CON PIVOT
+SELECT TurnoFijoCanPad.TurnoFijoCanPadHora AS HORARIO,
+[1] AS LUNES, [2] AS MARTES, [3] AS MIERCOLES, [4] AS JUEVES, [5] AS VIERNES, [6] AS SABADO
+FROM (SELECT TurnoFijoCanPad.TurnoFijoCanPadHora, (PersonasPad.PersonasPAdApellido+' '+PersonasPad.PersonasPadNombre) AS  from TurnoFijoCanPad INNER JOIN PersonasPad ON PersonasPad.PersonasPadId = TurnoFijoCanPad.PersonasPadId
+WHERE TurnoFijoCanPad.CanchaId = 1) V PIVOT(
+MAX(
+------------------------------------------------------------
